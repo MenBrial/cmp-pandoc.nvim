@@ -40,6 +40,9 @@ M.format = function(str, field)
   if field == "type" then
     format = format:gsub("^%l", string.upper)
   end
+  if field == "title" or field == "author" then
+    format = format:gsub("[{}]", "")
+  end
 
   local format_with_template = string.format(template[field], format)
   return format_with_template
